@@ -145,17 +145,6 @@ class User
       return $db->query($query, [$id]);
    }
 
-   public static function getProfile($db, $userId)
-   {
-      $query = "SELECT * FROM users WHERE id = ?";
-      $user = $db->selectOne($query, [$userId]);
-
-      if ($user) {
-         return new User($user['name'], $user['email'], '', $user['role_id'], $user['is_active'] ? 'active' : 'inactive');
-      }
-
-      return null;
-   }
 
    private function getRoleIdByName($db, $roleName)
    {

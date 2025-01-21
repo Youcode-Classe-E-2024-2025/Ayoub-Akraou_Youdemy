@@ -1,119 +1,122 @@
 # Youdemy - Plateforme d'Apprentissage en Ligne
 
-Youdemy est une plateforme d'apprentissage en ligne qui permet aux instructeurs de créer et de partager des cours, et aux étudiants d'apprendre à leur rythme.
+Une plateforme d'apprentissage en ligne permettant aux instructeurs de partager leurs connaissances et aux étudiants d'apprendre à leur rythme.
 
-## 🚀 Fonctionnalités
+## 📚 Fonctionnalités Implémentées
 
-### Pour les Étudiants
-- Inscription et authentification
-- Parcourir les cours disponibles
-- S'inscrire aux cours
-- Suivre sa progression
-- Télécharger des certificats
+### Système d'Authentification
+- Inscription des utilisateurs (étudiants et enseignants)
+- Connexion sécurisée
+- Gestion des sessions
+- Validation des enseignants par l'administrateur
 
-### Pour les Instructeurs
-- Créer et gérer des cours
-- Télécharger du contenu (vidéos, documents)
-- Suivre les inscriptions
-- Interagir avec les étudiants
+### Gestion des Cours
+- Création de cours avec titre, description, durée et prix
+- Support pour différents types de contenu (vidéo, documents)
+- Catégorisation des cours
+- Système de tags pour une meilleure organisation
+- Recherche de cours par mot-clé
+- Filtrage par catégorie
+- Affichage des cours populaires et récents
 
-### Pour les Administrateurs
-- Gérer les utilisateurs
-- Valider les instructeurs
-- Gérer les catégories et tags
-- Superviser les cours
-- Voir les statistiques
+### Espace Étudiant
+- Inscription aux cours
+- Liste des cours inscrits
+- Téléchargement de certificats
+
+### Espace Enseignant
+- Création et gestion des cours
+- Statistiques d'enseignement
+- Suivi des inscriptions
+- Gestion du contenu des cours
+
+### Panneau Administrateur
+- Statistiques globales de la plateforme
+- Gestion des utilisateurs (activation/désactivation)
+- Validation des enseignants
+- Gestion des catégories
+- Gestion des tags
+- Supervision des cours
+- Gestion des inscriptions
+
+### Interface Utilisateur
+- Design responsive avec Tailwind CSS
+- Navigation intuitive
+- Composants réutilisables
+- Pages d'accueil et à propos
+- Filtres de recherche dynamiques
 
 ## 🛠️ Technologies Utilisées
 
-- **Backend**: PHP 8
+- **Backend**: PHP 8 (POO)
 - **Base de données**: MySQL
 - **Frontend**: 
   - HTML5
   - Tailwind CSS
   - JavaScript
-- **Outils**:
-  - Git pour le contrôle de version
-  - Composer pour la gestion des dépendances
+- **Outils**: Git
 
-## 📦 Installation
-
-1. Cloner le repository :
-```bash
-git clone https://github.com/votre-username/Youdemy.git
-```
-
-2. Configurer la base de données :
-- Créer une base de données MySQL
-- Importer le fichier `database/init.sql`
-
-3. Configurer l'environnement :
-- Copier `.env.example` en `.env`
-- Modifier les paramètres de connexion à la base de données
-
-4. Installer les dépendances :
-```bash
-composer install
-npm install
-```
-
-5. Compiler les assets :
-```bash
-npm run build
-```
-
-## 🏗️ Structure du Projet
+## 📁 Structure du Projet
 
 ```
 Youdemy/
-├── assets/             # Ressources frontend (CSS, JS, images)
-├── controllers/        # Contrôleurs de l'application
-├── core/              # Classes principales du framework
-├── database/          # Migrations et seeders
+├── assets/             # Ressources frontend
+│   ├── CSS/           # Styles Tailwind
+│   ├── js/            # Scripts JavaScript
+│   └── images/        # Images et médias
+├── controllers/        # Logique métier
+│   ├── admin/         # Administration
+│   ├── auth/          # Authentification
+│   ├── courses/       # Gestion des cours
+│   └── student/       # Espace étudiant
+├── database/          # Base de données
+│   └── init.sql       # Structure et données initiales
 ├── helpers/           # Fonctions utilitaires
 ├── models/            # Modèles de données
-└── views/             # Templates et vues
-    ├── admin/         # Interface administrateur
-    ├── auth/          # Pages d'authentification
-    ├── components/    # Composants réutilisables
+└── views/             # Templates
+    ├── admin/         # Interface admin
+    ├── auth/          # Pages de connexion
+    ├── components/    # Composants partagés
     ├── courses/       # Pages des cours
     └── student/       # Interface étudiant
 ```
 
-## 👥 Rôles Utilisateurs
-
-1. **Admin**
-   - Gestion complète de la plateforme
-   - Accès à toutes les fonctionnalités
-
-2. **Instructeur**
-   - Création et gestion de cours
-   - Suivi des étudiants
-
-3. **Étudiant**
-   - Inscription aux cours
-   - Accès au contenu des cours
-
 ## 🔐 Sécurité
 
-- Protection contre les injections SQL
 - Validation des entrées utilisateur
 - Hachage des mots de passe
 - Sessions sécurisées
-- Protection CSRF
+- Protection contre les injections SQL
 
-## 🤝 Contribution
+## 📋 Modèles de Données
 
-1. Fork le projet
-2. Créer une branche pour votre fonctionnalité
-3. Commiter vos changements
-4. Pousser vers la branche
-5. Ouvrir une Pull Request
+### User
+- Gestion des utilisateurs (Admin, Teacher, Student)
+- Authentification et autorisations
+- Profils utilisateurs
 
-## 📝 License
+### Course
+- Gestion complète des cours
+- Métadonnées (titre, description, durée, prix)
+- Relations avec catégories et tags
 
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+### Category & Tag
+- Organisation des cours
+- Filtrage et recherche
 
-## 📧 Contact
+### Enrollment
+- Gestion des inscriptions
+- Suivi des progrès
+- Statistiques d'apprentissage
 
-Pour toute question ou suggestion, n'hésitez pas à nous contacter à [email@youdemy.com](mailto:email@youdemy.com).
+## 🚀 Installation
+
+1. Cloner le repository
+2. Configurer la base de données avec `database/init.sql`
+3. Configurer le serveur web (Apache/Nginx)
+4. Installer les dépendances frontend
+5. Compiler les assets CSS avec Tailwind
+
+## 📞 Support
+
+Pour toute question technique ou suggestion d'amélioration, contactez l'équipe de développement.
