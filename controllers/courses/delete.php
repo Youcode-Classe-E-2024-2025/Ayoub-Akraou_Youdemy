@@ -7,5 +7,5 @@ if(isset($_GET['id'])) {
     $id = htmlspecialchars($_GET['id']);
     $db = new Database();
     Course::delete($db, $id);
-    header('Location: courses/dashboard');
+    header('Location: /courses/dashboard');
 }

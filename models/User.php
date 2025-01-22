@@ -1,6 +1,6 @@
 <?php
 
-class User
+abstract class User
 {
    // Propriétés
    protected $id;
@@ -167,5 +167,9 @@ class User
         $query = "SELECT * FROM users";
         return $db->select($query);
     }
+    
+    
+    abstract public static function getCourses($db);
+    
 
 }

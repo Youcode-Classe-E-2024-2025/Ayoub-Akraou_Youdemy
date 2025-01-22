@@ -5,7 +5,7 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 }
 
 $db = new Database();
-$courses = Admin::getAllCourses($db);
+$courses = Admin::getCourses($db);
 
 require_once('views/admin/manageCourses.php');
 ?>

@@ -47,7 +47,7 @@ class Admin extends User
       return $db->query($updateQuery, [$user_id]);
    }
 
-   public static function getAllCourses($db)
+   public static function getCourses($db)
    {
       $query = "SELECT c.*, u.name as teacher_name, u.email as teacher_email 
                 FROM courses c 
@@ -70,7 +70,7 @@ class Admin extends User
 
    public static function deleteCourse($db, $course_id)
    {
-      // D'abord, vérifier si le cours existe
+      // Vérifier si le cours existe
       $checkQuery = "SELECT id FROM courses WHERE id = ?";
       $course = $db->query($checkQuery, [$course_id])->fetch();
 
@@ -137,11 +137,9 @@ class Admin extends User
 
    public static function deleteTag($db, $id)
    {
-      // D'abord, supprimer les relations dans la table de liaison
       $deleteRelationsQuery = "DELETE FROM course_tags WHERE tag_id = ?";
       $db->query($deleteRelationsQuery, [$id]);
 
-      // Ensuite, supprimer le tag
       $query = "DELETE FROM tags WHERE id = ?";
       return $db->query($query, [$id]);
    }

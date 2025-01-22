@@ -42,7 +42,7 @@ class Teacher extends User
    }
 
    // Méthode pour récupérer les cours enseignés par le Teacher avec le nombre d'étudiants
-   public static function getCourses($db, $teacherId)
+   public static function getCourses($db, $teacherId = null)
    {
       $query = "SELECT 
                   c.*,

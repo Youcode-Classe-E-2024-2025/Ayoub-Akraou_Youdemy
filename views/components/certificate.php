@@ -14,7 +14,7 @@
         <div id="certificate" class="relative" style="width: 800px; height: 600px;">
             <p class="course_name absolute" style="top: 220px; left: 400px; transform: translateX(-50%); font-size: 24px;"><?= $course_name ?></p>
             <p class="student_name absolute" style="top: 340px; left: 400px; transform: translateX(-50%); font-size: 32px; font-weight: bold; font-style: italic;"><?= $student_name ?></p>
-            <p class="teacher_name absolute" style="top: 460px; left: 200px; transform: translateX(-50%); font-size: 16px; font-weight: 500; text-transform: uppercase;"><?= $teacher_name ?></p>
+            <p class="teacher_name absolute" style="top: 454px; left: 210px; transform: translateX(-50%); font-size: 16px; font-weight: 500; text-transform: uppercase;"><?= $teacher_name ?></p>
             <img class="w-full h-full object-contain" src="/assets/images/certificate.png">
         </div>
     </div>

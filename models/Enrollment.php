@@ -25,23 +25,6 @@ class Enrollment
       return $db->query($sql, [$this->student_id, $this->course_id]);
    }
 
-   // Méthode pour récupérer les cours où un étudiant est inscrit
-   public static function getEnrolledCourses($db, $student_id)
-   {
-      $sql = "SELECT 
-                courses.*, 
-                categories.name as category_name,
-                GROUP_CONCAT(tags.name) as tags
-              FROM enrollments 
-              INNER JOIN courses ON enrollments.course_id = courses.id
-              LEFT JOIN categories ON courses.category_id = categories.id
-              LEFT JOIN course_tags ON courses.id = course_tags.course_id
-              LEFT JOIN tags ON course_tags.tag_id = tags.id
-              WHERE enrollments.student_id = ?
-              GROUP BY courses.id";
-      return $db->select($sql, [$student_id]);
-   }
-
    // Méthode pour récupérer les inscriptions liées à un enseignant
    public static function getEnrollmentsByTeacher($db, $teacher_id)
    {
@@ -49,14 +32,12 @@ class Enrollment
       return $db->select($sql, [$teacher_id]);
    }
 
-   // Méthode pour vérifier si un utilisateur est inscrit à un cours
    public function isEnrolledToCourse($db) {
       $sql = "SELECT COUNT(*) as count FROM enrollments WHERE student_id = ? AND course_id = ?";
       $result = $db->selectOne($sql, [$this->student_id, $this->course_id]);
       return $result['count'] > 0;
    }
 
-   // Get total number of enrollments
    public static function count($db)
    {
        $query = "SELECT COUNT(*) as total FROM enrollments";
